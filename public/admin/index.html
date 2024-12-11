@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityCoach Admin</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>VelocityCoach Admin</h1>
+            <nav>
+                <button class="nav-btn active" data-section="plans">Subscription Plans</button>
+                <button class="nav-btn" data-section="features">Features</button>
+                <button class="nav-btn" data-section="users">Users</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="plans" class="admin-section active">
+                <div class="section-header">
+                    <h2>Subscription Plans</h2>
+                    <button class="add-btn" onclick="showPlanForm()">Add Plan</button>
+                </div>
+                <div class="plans-grid" id="plans-grid">
+                    <!-- Plans will be loaded here -->
+                </div>
+            </section>
+
+            <section id="features" class="admin-section">
+                <div class="section-header">
+                    <h2>Features</h2>
+                    <button class="add-btn" onclick="showFeatureForm()">Add Feature</button>
+                </div>
+                <div class="features-grid" id="features-grid">
+                    <!-- Features will be loaded here -->
+                </div>
+            </section>
+
+            <section id="users" class="admin-section">
+                <div class="section-header">
+                    <h2>Users</h2>
+                    <div class="search-box">
+                        <input type="text" id="user-search" placeholder="Search users...">
+                    </div>
+                </div>
+                <div class="users-table" id="users-table">
+                    <!-- Users will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for adding/editing plans -->
+    <div id="plan-modal" class="modal">
+        <div class="modal-content">
+            <h2>Plan Details</h2>
+            <form id="plan-form">
+                <input type="text" name="name" placeholder="Plan Name" required>
+                <input type="number" name="price" placeholder="Price" step="0.01" required>
+                <select name="interval" required>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <textarea name="description" placeholder="Plan Description" required></textarea>
+                <div class="feature-toggles" id="feature-toggles">
+                    <!-- Feature toggles will be loaded here -->
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Save Plan</button>
+                    <button type="button" onclick="closeModal('plan-modal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing features -->
+    <div id="feature-modal" class="modal">
+        <div class="modal-content">
+            <h2>Feature Details</h2>
+            <form id="feature-form">
+                <input type="text" name="name" placeholder="Feature Name" required>
+                <input type="text" name="key" placeholder="Feature Key" required>
+                <select name="category" required>
+                    <option value="core">Core</option>
+                    <option value="analytics">Analytics</option>
+                    <option value="support">Support</option>
+                    <option value="tools">Tools</option>
+                </select>
+                <textarea name="description" placeholder="Feature Description" required></textarea>
+                <div class="limited-access">
+                    <h3>Limited Access Settings</h3>
+                    <input type="number" name="maxUsage" placeholder="Max Usage">
+                    <select name="timeFrame">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <textarea name="limitDescription" placeholder="Limit Description"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Save Feature</button>
+                    <button type="button" onclick="closeModal('feature-modal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

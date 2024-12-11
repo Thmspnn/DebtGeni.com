@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityCoach.ca - Accelerate Your Financial Success</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>VelocityCoach</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Success Stories</a>
+                <a href="#contact" class="cta-button">Book a Call</a>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Accelerate Your Path to Financial Freedom</h1>
+                <p>Expert financial coaching to help Canadians build wealth, eliminate debt, and secure their future</p>
+                <a href="#contact" class="cta-button">Schedule Your Free Strategy Call</a>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Our Coaching Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Velocity Wealth Building</h3>
+                    <p>Create a personalized roadmap to accelerate your wealth building journey</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Debt Elimination</h3>
+                    <p>Strategic planning to become debt-free faster than you thought possible</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Financial Protection</h3>
+                    <p>Secure your financial future with smart Canadian investment strategies</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>About VelocityCoach</h2>
+                <p>At VelocityCoach, we're passionate about helping Canadians achieve their financial goals with velocity and precision. Our proven coaching methods have helped hundreds of clients across Canada eliminate debt, build sustainable wealth, and create lasting financial freedom. We understand the unique challenges and opportunities in the Canadian financial landscape and provide tailored solutions that work.</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Client Success Stories</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Working with VelocityCoach transformed my financial future. I eliminated $45,000 in debt and built my first investment portfolio!"</p>
+                    <cite>- Jennifer from Toronto</cite>
+                </div>
+                <!-- More testimonials will be added dynamically -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Start Your 2-Week Free Trial</h2>
+            <div class="contact-container">
+                <div class="form-toggle">
+                    <button class="toggle-btn active" data-form="signup">Sign Up</button>
+                    <button class="toggle-btn" data-form="signin">Sign In</button>
+                </div>
+                
+                <form id="signup-form" class="auth-form active">
+                    <h3>Create Your Account</h3>
+                    <p class="form-subtitle">Get started with your 2-week free trial - no credit card required</p>
+                    <div class="form-group">
+                        <input type="text" name="firstName" placeholder="First Name" required>
+                        <input type="text" name="lastName" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="password" name="password" placeholder="Create Password" required>
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                    <select name="province" required>
+                        <option value="">Select Your Province</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                    </div>
+                    <button type="submit" class="cta-button">Start Free Trial</button>
+                </form>
+
+                <form id="signin-form" class="auth-form">
+                    <h3>Welcome Back</h3>
+                    <p class="form-subtitle">Sign in to access your account</p>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <div class="form-group forgot-password">
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="cta-button">Sign In</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VelocityCoach</h3>
+                <p>Accelerating Canadian Financial Success</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@velocitycoach.ca</p>
+                <p>Phone: 1-888-VELOCITY</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VelocityCoach.ca. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

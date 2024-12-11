@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DebtGeni.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="/dashboard" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-500 text-lg">DebtGeni.com</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="/dashboard" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">Dashboard</a>
+                        <a href="/debts" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">My Debts</a>
+                        <a href="/payments" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Payments</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <button id="logoutBtn" class="py-2 px-4 text-gray-500 hover:text-gray-700">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Welcome Back, <span id="userName">User</span>!</h1>
+        
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold mb-2">Total Debt</h3>
+                <p class="text-3xl font-bold text-blue-500">$<span id="totalDebt">0.00</span></p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold mb-2">Monthly Payment</h3>
+                <p class="text-3xl font-bold text-green-500">$<span id="monthlyPayment">0.00</span></p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold mb-2">Debt Free Date</h3>
+                <p class="text-3xl font-bold text-purple-500"><span id="debtFreeDate">--</span></p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-bold mb-4">Quick Actions</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add New Debt</button>
+                <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Make a Payment</button>
+                <button class="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600">View Reports</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is authenticated
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login';
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+        });
+
+        // Fetch user data
+        async function fetchUserData() {
+            try {
+                const response = await fetch('/api/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('userName').textContent = data.firstName;
+                } else {
+                    // If unauthorized, redirect to login
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        }
+
+        // Initialize dashboard
+        fetchUserData();
+    </script>
+</body>
+</html>
